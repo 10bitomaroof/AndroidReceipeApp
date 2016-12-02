@@ -16,8 +16,8 @@ import java.util.Locale;
  */
 public class SocketConnection {
 	
-	private static String ip = "192.168.0.24";
-//	private static String ip = "134.155.209.85";
+//	private static String ip = "192.168.0.104";
+	private static String ip = "134.155.193.90";
 	private static int port = 2222;
 	private Socket socket;
 	

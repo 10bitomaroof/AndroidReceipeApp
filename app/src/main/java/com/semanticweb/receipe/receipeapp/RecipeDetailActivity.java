@@ -83,7 +83,6 @@ public class RecipeDetailActivity extends Activity {
 			    final List<String> keysList = new ArrayList<String>();
 			    while(keys.hasNext()){
 			    	String k = keys.next();
-//			    	System.out.println("related: ");
 				    relatedNameList.add(related_json.getString(k));
 				    keysList.add(k);
 			    }
@@ -94,7 +93,18 @@ public class RecipeDetailActivity extends Activity {
 
 					@Override
 					public void onItemClick(AdapterView<?> arg0, View arg1, final int position, long id) {
-						
+
+						recipeName.setVisibility(View.GONE);
+						recipeImg.setVisibility(View.GONE);
+						description.setVisibility(View.GONE);
+						ingredients.setVisibility(View.GONE);
+						preparation.setVisibility(View.GONE);
+						related.setVisibility(View.GONE);
+					    findViewById(R.id.textView1).setVisibility(View.GONE);
+					    findViewById(R.id.textView2).setVisibility(View.GONE);
+					    findViewById(R.id.textView3).setVisibility(View.GONE);
+					    progressBar.setVisibility(View.VISIBLE);
+					    
 						Thread thrd = new Thread(new Runnable() {
 							@Override
 							public void run() {
@@ -109,6 +119,7 @@ public class RecipeDetailActivity extends Activity {
 								handler.post(new Runnable() {
 									@Override
 									public void run() {
+									    
 										Intent intent = new Intent(RecipeDetailActivity.this, RecipeDetailActivity.class);
 										intent.putExtra("recipe", related_result);
 										startActivity(intent);
